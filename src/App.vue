@@ -1,6 +1,8 @@
 <script lang="ts" setup>
-console.log('hello world');
+import ChessBoard from './components/ChessBoard.vue';
+import Sidebar from './components/Sidebar.vue';
 </script>
 <template>
-  <h1>Hello Vue 3 with TypeScript</h1>
+  <ChessBoard />
+  <Sidebar />
 </template>
