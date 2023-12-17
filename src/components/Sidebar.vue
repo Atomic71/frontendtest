@@ -8,7 +8,7 @@ const props = defineProps<{
 }>();
 
 defineEmits<{
-  (event: 'change-perspective'): void;
+  (event: 'change-perspective', p: Perspective): void;
 }>();
 
 const moveList = ref<HTMLElement | null>(null);
@@ -33,7 +33,9 @@ watch(
     <h1 class="text-white">Sidebar</h1>
     <button
       class="p-2 bg-yellow-500 shadow-lg text-gray-600"
-      @click="$emit('change-perspective')"
+      @click="
+        $emit('change-perspective', perspective === 'black' ? 'white' : 'black')
+      "
     >
       Watching as {{ perspective }} ⬆️
     </button>
