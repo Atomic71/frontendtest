@@ -1,25 +1,14 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import type { ChessFile, ChessRank, Perspective } from '@/types';
+import type { Perspective } from '@/types';
 import { isSquareDark } from '@/utils';
+import { useBoardRenderOrder } from '@/hooks';
 const props = defineProps<{
   perspective: Perspective;
 }>();
 
-const ranks = ref<ChessRank[]>(['1', '2', '3', '4', '5', '6', '7', '8']);
-const files = ref<ChessFile[]>(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']);
-
-const fileRenderOrder = computed(() => {
-  return props.perspective === 'white'
-    ? files.value
-    : files.value.slice().reverse();
-});
-
-const rankRenderOrder = computed(() => {
-  return props.perspective === 'black'
-    ? ranks.value
-    : ranks.value.slice().reverse();
-});
+const { fileRenderOrder, rankRenderOrder } = useBoardRenderOrder(
+  props.perspective
+);
 </script>
 
 <template>
