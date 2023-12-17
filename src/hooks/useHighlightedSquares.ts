@@ -1,12 +1,15 @@
-import { ChessFile, ChessRank, ChessSquarePosition } from '@/types';
+import { ChessSquare, ChessSquarePosition } from '@/types';
 import { getPosition } from '@/utils';
 import { ref } from 'vue';
 
 export const useHighlightedSquares = () => {
   const highlightedSquares = ref<ChessSquarePosition[]>([]);
 
-  const handleHighlightSquare = (file: ChessFile, rank: ChessRank) => {
-    const squarePosition = getPosition(file, rank);
+  const isHighlighted = (square: ChessSquare) => {
+    return highlightedSquares.value.includes(getPosition(square));
+  };
+  const handleHighlightSquare = (square: ChessSquare) => {
+    const squarePosition = getPosition(square);
 
     const isHighlighted = highlightedSquares.value.includes(squarePosition);
 
@@ -20,5 +23,6 @@ export const useHighlightedSquares = () => {
   return {
     highlightedSquares,
     handleHighlightSquare,
+    isHighlighted,
   };
 };

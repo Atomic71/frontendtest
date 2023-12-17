@@ -6,7 +6,7 @@ export const useBoardRenderOrder = (perspective: Ref<Perspective>) => {
   const files = ref<ChessFile[]>(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']);
 
   const fileRenderOrder = computed(() => {
-    return perspective.value === 'black'
+    return perspective.value === 'white'
       ? files.value
       : files.value.slice().reverse();
   });
@@ -17,8 +17,29 @@ export const useBoardRenderOrder = (perspective: Ref<Perspective>) => {
       : ranks.value.slice().reverse();
   });
 
+  const finalOrder = computed<
+    {
+      file: ChessFile;
+      rank: ChessRank;
+    }[]
+  >(() => {
+    const order: {
+      file: ChessFile;
+      rank: ChessRank;
+    }[] = [];
+
+    rankRenderOrder.value.forEach((rank) => {
+      fileRenderOrder.value.forEach((file) => {
+        order.push({ file, rank });
+      });
+    });
+
+    return order;
+  });
+
   return {
     fileRenderOrder,
     rankRenderOrder,
+    finalOrder,
   };
 };

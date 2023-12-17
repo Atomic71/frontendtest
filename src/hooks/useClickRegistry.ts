@@ -1,19 +1,13 @@
-import { ChessRank } from './../types';
-import {
-  ChessFile,
-  ChessSquarePosition,
-  Perspective,
-  SquareClickEvent,
-  SquareClickedRegistry,
-} from '@/types';
+import { SquareClickedRegistry } from '@/types';
 import { addEntryToRegistry, getPosition } from '@/utils';
 import { ref } from 'vue';
+import { ChessSquare } from './../types';
 
 export const useClickRegistry = () => {
   const squareClickedRegistry = ref<SquareClickedRegistry>([]);
 
-  const addToRegistry = (file: ChessFile, rank: ChessRank) => {
-    const squarePosition = getPosition(file, rank);
+  const addToRegistry = (square: ChessSquare) => {
+    const squarePosition = getPosition(square);
 
     squareClickedRegistry.value = addEntryToRegistry(
       squarePosition,
