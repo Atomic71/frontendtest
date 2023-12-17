@@ -29,7 +29,7 @@ watch(
 );
 </script>
 <template>
-  <div class="flex justify-between items-center mb-2 px-2 pt-2 pl">
+  <div class="flex justify-between items-center mb-2 p-2 bg-slate-700">
     <h1 class="text-white">Sidebar</h1>
     <button
       class="p-2 bg-yellow-500 shadow-lg text-gray-600"
@@ -42,7 +42,7 @@ watch(
   </div>
 
   <div
-    class="overflow-scroll h-[20vh] md:h-[80vh] pb-5"
+    class="overflow-y-auto h-[20vh] md:h-[80vh] bg-slate-700 pt-2 px-2"
     ref="moveList"
   >
     <div
