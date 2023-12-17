@@ -35,14 +35,14 @@ const rankRenderOrder = computed(() => {
             :key="rank"
             class="w-[10vw] h-[10vw] max-h-[10vh] max-w-[10vh] relative"
             :class="[
-              isSquareDark(file, rank) ? 'bg-gray-200' : 'bg-green-900',
+              isSquareDark(file, rank) ? 'bg-gray-900' : 'bg-lime-900',
               'flex justify-center items-center text-2xl',
             ]"
           >
             <span
               class="absolute leading-none top-0.5 left-0.5 text-xs"
               :class="[
-                isSquareDark(file, rank) ? 'text-green-900' : 'text-gray-200',
+                isSquareDark(file, rank) ? 'text-lime-100' : 'text-gray-100',
               ]"
               v-if="fileIndex === 0"
               >{{ rank }}</span
@@ -50,7 +50,7 @@ const rankRenderOrder = computed(() => {
             <span
               class="absolute leading-none bottom-0.5 right-0.5 text-xs"
               :class="[
-                isSquareDark(file, rank) ? 'text-green-900' : 'text-gray-200',
+                isSquareDark(file, rank) ? 'text-lime-100' : 'text-gray-100',
               ]"
               v-if="rankIndex === rankRenderOrder.length - 1"
               >{{ file }}</span
