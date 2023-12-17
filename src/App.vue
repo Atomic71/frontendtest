@@ -21,7 +21,7 @@ const perspective = ref<Perspective>('white');
     </div>
 
     <div
-      class="h-full overflow-hidden md:max-w-[300px] max-h-[95vh] flex-1 bg-slate-700"
+      class="h-full overflow-hidden md:max-w-[300px] max-h-[95vh] flex-1 bg-slate-700 md:pb-0 pb-10"
     >
       <Sidebar
         :registry="squareClickedRegistry"
