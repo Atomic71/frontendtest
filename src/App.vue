@@ -11,16 +11,18 @@ const perspective = ref<Perspective>('white');
 </script>
 <template>
   <section
-    class="p-4 overflow-hidden flex flex-col md:flex-row pb-3 gap-5 justify-center"
+    class="p-4 overflow-hidden flex flex-col md:flex-row pb-3 gap-5 justify-center h-screen max-h-screen"
   >
-    <div class="flex-1 max-w-[90vh]">
+    <div class="md:flex-1 max-w-[95vh]">
       <ChessBoard
         :perspective="perspective"
         @square-clicked="addToRegistry"
       />
     </div>
 
-    <div class="overflow-hidden max-w-[300px] flex-1 bg-slate-700">
+    <div
+      class="h-full overflow-hidden md:max-w-[300px] max-h-[95vh] flex-1 bg-slate-700"
+    >
       <Sidebar
         :registry="squareClickedRegistry"
         :perspective="perspective"
