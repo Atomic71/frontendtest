@@ -35,10 +35,7 @@ watch(
     <div
       class="mb-3 flex sm:flex-shrink-0 justify-between w-full md:flex-row md:flex-grow-0 md:justify-between md:items-center md:flex-1"
     >
-      <h1 class="text-white">
-        Sidebar {{ registry.length }}
-        {{ moveList?.scrollTop }}
-      </h1>
+      <h1 class="text-white">Sidebar</h1>
       <button
         class="p-2 bg-yellow-500 shadow-lg text-gray-600 rounded-sm mt-auto"
         @click="
