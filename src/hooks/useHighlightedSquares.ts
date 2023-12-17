@@ -1,12 +1,5 @@
-import {
-  ChessFile,
-  ChessRank,
-  ChessSquarePosition,
-  Perspective,
-  SquareClickEvent,
-  SquareClickedRegistry,
-} from '@/types';
-import { addEntryToRegistry, getPosition } from '@/utils';
+import { ChessFile, ChessRank, ChessSquarePosition } from '@/types';
+import { getPosition } from '@/utils';
 import { ref } from 'vue';
 
 export const useHighlightedSquares = () => {
