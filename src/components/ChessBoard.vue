@@ -23,9 +23,7 @@ const handleOnClick = (square: ChessSquare) => {
 </script>
 
 <template>
-  <div
-    class="grid h-full grid-cols-8 border-2 border-black grid-flow-row-dense max-h-[60vh]"
-  >
+  <div class="grid gap-0 grid-cols-8 grid-flow-row-dense border-2 border-black">
     <div
       v-for="square in finalOrder"
       @click="handleOnClick(square)"

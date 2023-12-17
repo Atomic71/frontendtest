@@ -42,7 +42,7 @@ watch(
   </div>
 
   <div
-    class="overflow-y-auto h-[20vh] md:h-[80vh] bg-slate-700 pt-2 px-2"
+    class="overflow-y-auto pt-2 px-2"
     ref="moveList"
   >
     <div
