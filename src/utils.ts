@@ -1,15 +1,12 @@
 import dayjs from 'dayjs';
 import {
-  ChessFile,
-  ChessRank,
+  ChessSquare,
   ChessSquarePosition,
   SquareClickedRegistry,
 } from './types';
 
-export const getPosition = (
-  file: ChessFile,
-  rank: ChessRank
-): ChessSquarePosition => `${file}${rank}`;
+export const getPosition = (square: ChessSquare): ChessSquarePosition =>
+  `${square.file}${square.rank}`;
 
 export const addEntryToRegistry = (
   position: ChessSquarePosition,
@@ -23,8 +20,10 @@ export const addEntryToRegistry = (
   },
 ];
 
-export const isSquareDark = (file: ChessFile, rank: ChessRank): boolean => {
+export const isSquareDark = (square: ChessSquare): boolean => {
   // a = 97, b = 98, etc.
+  const { file, rank } = square;
+
   const asciiBaseForFiles = 'a'.charCodeAt(0);
 
   const asciiFile = file.charCodeAt(0);
@@ -32,7 +31,7 @@ export const isSquareDark = (file: ChessFile, rank: ChessRank): boolean => {
   const fileIndex = asciiFile - asciiBaseForFiles; // get 0-indexed file, a = 0, b = 1, etc
 
   // Check if combined position is even;
-  const isCombinedPositionEven = (fileIndex + Number(rank)) % 2 === 0;
+  const isCombinedPositionEven = (fileIndex + Number(rank)) % 2 !== 0;
 
   // Even positions are dark squares
   return isCombinedPositionEven;
