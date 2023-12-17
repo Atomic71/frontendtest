@@ -2,7 +2,6 @@ import { Ref, computed, ref } from 'vue';
 import { ChessFile, ChessRank, Perspective } from '../types';
 
 export const useBoardRenderOrder = (perspective: Ref<Perspective>) => {
-  console.log('useBoardRenderOrder', perspective);
   const ranks = ref<ChessRank[]>(['1', '2', '3', '4', '5', '6', '7', '8']);
   const files = ref<ChessFile[]>(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']);
 
