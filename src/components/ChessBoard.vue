@@ -2,13 +2,15 @@
 import type { Perspective } from '@/types';
 import { isSquareDark } from '@/utils';
 import { useBoardRenderOrder } from '@/hooks';
+import { toRef } from 'vue';
+
 const props = defineProps<{
   perspective: Perspective;
 }>();
 
-const { fileRenderOrder, rankRenderOrder } = useBoardRenderOrder(
-  props.perspective
-);
+const perspective = toRef(props, 'perspective');
+
+const { fileRenderOrder, rankRenderOrder } = useBoardRenderOrder(perspective);
 </script>
 
 <template>
@@ -34,8 +36,9 @@ const { fileRenderOrder, rankRenderOrder } = useBoardRenderOrder(
                 isSquareDark(file, rank) ? 'text-lime-100' : 'text-gray-100',
               ]"
               v-if="fileIndex === 0"
-              >{{ rank }}</span
             >
+              {{ rank }}
+            </span>
             <span
               class="absolute leading-none bottom-0.5 right-0.5 text-xs"
               :class="[
@@ -46,7 +49,11 @@ const { fileRenderOrder, rankRenderOrder } = useBoardRenderOrder(
             >
             <slot
               name="square"
-              v-bind="{ file, rank }"
+              v-bind="{
+                file,
+                rank,
+                isDark: isSquareDark(file, rank),
+              }"
             />
           </div>
         </div>
