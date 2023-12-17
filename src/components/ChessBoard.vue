@@ -26,7 +26,7 @@ const { fileRenderOrder, rankRenderOrder } = useBoardRenderOrder(perspective);
             :key="rank"
             class="w-[10vw] h-[10vw] max-h-[10vh] max-w-[10vh] relative"
             :class="[
-              isSquareDark(file, rank) ? 'bg-gray-900' : 'bg-lime-900',
+              isSquareDark(file, rank) ? 'bg-gray-900' : 'bg-lime-700',
               'flex justify-center items-center text-2xl',
             ]"
           >
@@ -45,8 +45,8 @@ const { fileRenderOrder, rankRenderOrder } = useBoardRenderOrder(perspective);
                 isSquareDark(file, rank) ? 'text-lime-100' : 'text-gray-100',
               ]"
               v-if="rankIndex === rankRenderOrder.length - 1"
-              >{{ file }}</span
-            >
+              >{{ file }}
+            </span>
             <slot
               name="square"
               v-bind="{
